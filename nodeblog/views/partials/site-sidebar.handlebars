@@ -1,0 +1,42 @@
+<aside id="aside" class="col-md-4">
+
+	<div class="widget">
+		<div class="widget-search">
+			<form action="/posts/search" method="GET">
+			<input class="search-input form-control" type="text" name="look" placeholder="Search">
+			<button class="search-btn" type="submit"><i class="fas fa-search"></i></button>
+			</form>		
+		</div>
+	</div>
+
+	<div class="widget">
+		<h3 class="mb-3">Kategoriler</h3>
+		<div class="widget-category">
+			{{#each categories}}
+			<a href="#">{{name}}<span>(7)</span></a>
+			{{/each}}
+		</div>
+	</div>
+
+	<div class="widget">
+		<h3 class="mb-3">Son Gönderiler</h3>
+
+		<!-- single post -->
+
+		{{#each (limit posts 2)}}
+		<div class="widget-post">
+			<a href="#">
+				<img class="img-fluid" src="{{post_image}}" alt="">{{title}}
+			</a>
+			<ul class="blog-meta">
+				<li>{{generateDate date 'MMM DD YYYY'}}</li>
+			</ul>
+		</div>
+		{{/each}}
+		
+
+
+	</div>
+	<!-- /Posts sidebar -->
+
+</aside>
